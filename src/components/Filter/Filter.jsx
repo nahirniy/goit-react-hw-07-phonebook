@@ -1,12 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import css from './Filter.module.css';
-import { setFilter } from '../../redux/contactsSlice';
+// import { setFilter } from '../../redux/contactsSlice';
 
 export const Filter = () => {
-  const defaultValue = useSelector(state => state.contacts.filter);
-  const dispatch = useDispatch();
+  // const defaultValue = useSelector(state => state.contacts.filter);
+  // const dispatch = useDispatch();
 
-  const findContact = ({ target: { value } }) => dispatch(setFilter(value));
+  // const findContact = ({ target: { value } }) => dispatch(setFilter(value));
 
   return (
     <>
@@ -18,8 +18,8 @@ export const Filter = () => {
           id="filter"
           name="filter"
           className={css.input}
-          onInput={findContact}
-          value={defaultValue}
+          // onInput={findContact}
+          // value={defaultValue}
         />
       </label>
     </>

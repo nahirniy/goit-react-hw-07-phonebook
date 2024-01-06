@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
+// import { addContact } from '../../redux/contactsSlice';
 import css from './ContactForm.module.css';
+import { addContactThunk } from '../../redux/thunk';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ export const ContactForm = () => {
 
     const { name, number } = e.target.elements;
 
-    dispatch(addContact({ name: name.value, number: number.value }));
+    dispatch(addContactThunk({ name: name.value, phone: number.value }));
 
     e.target.reset();
   };
