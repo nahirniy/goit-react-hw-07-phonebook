@@ -1,17 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
+import * as handlers from '../services/function-thunk';
+import { STATUS, appendThunk } from '../services/function-thunk';
 import { initialState } from './initialState';
 import { addContactThunk, deleteContactThunk, getContactsThunk } from './thunk';
-import {
-  STATUS,
-  appendThunk,
-  handleFulfilled,
-  handleFulfilledAdd,
-  handleFulfilledDel,
-  handleFulfilledGet,
-  handlePending,
-  handleRejected,
-} from '../services/function-thunk';
 
 const contactsSlice = createSlice({
   name: 'phonebook',
@@ -26,12 +18,12 @@ const contactsSlice = createSlice({
     const { PENDING, REJECTED, FULFILLED } = STATUS;
 
     builder
-      .addCase(getContactsThunk.fulfilled, handleFulfilledGet)
-      .addCase(addContactThunk.fulfilled, handleFulfilledAdd)
-      .addCase(deleteContactThunk.fulfilled, handleFulfilledDel)
-      .addMatcher(isAnyOf(...appendThunk(PENDING)), handlePending)
-      .addMatcher(isAnyOf(...appendThunk(FULFILLED)), handleFulfilled)
-      .addMatcher(isAnyOf(...appendThunk(REJECTED)), handleRejected);
+      .addCase(getContactsThunk.fulfilled, handlers.handleFulfilledGet)
+      .addCase(addContactThunk.fulfilled, handlers.handleFulfilledAdd)
+      .addCase(deleteContactThunk.fulfilled, handlers.handleFulfilledDel)
+      .addMatcher(isAnyOf(...appendThunk(PENDING)), handlers.handlePending)
+      .addMatcher(isAnyOf(...appendThunk(FULFILLED)), handlers.handleFulfilled)
+      .addMatcher(isAnyOf(...appendThunk(REJECTED)), handlers.handleRejected);
   },
 });
 
