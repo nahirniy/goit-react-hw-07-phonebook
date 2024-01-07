@@ -1,7 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 export const selectItems = state => state.phonebook.contacts.items;
-const seleсtFilter = state => state.phonebook.filter;
+export const seleсtFilter = state => state.phonebook.filter;
+export const selectStatus = state => state.phonebook.contacts.status;
+export const selectError = state => state.phonebook.contacts.error;
 
 export const selectVisibleContacts = createSelector(
   [selectItems, seleсtFilter],

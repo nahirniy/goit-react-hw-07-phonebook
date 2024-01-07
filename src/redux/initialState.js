@@ -1,7 +1,9 @@
+import { STATUS } from 'services/function-thunk';
+
 export const initialState = {
   contacts: {
     items: [],
-    isLoading: false,
+    status: STATUS.IDLE,
     error: null,
   },
   filter: '',

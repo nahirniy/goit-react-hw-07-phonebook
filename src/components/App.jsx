@@ -1,5 +1,5 @@
+import { ContactContent } from './ContactContent/ContactConten';
 import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { Section } from './Section/Section';
 
@@ -8,7 +8,7 @@ export const App = () => {
     <Section>
       <ContactForm />
       <Filter />
-      <ContactList />
+      <ContactContent />
     </Section>
   );
 };

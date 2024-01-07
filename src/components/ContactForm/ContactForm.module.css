@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 .label {
   display: flex;
@@ -18,6 +19,7 @@
   padding: 5px 10px;
   font-size: 16px;
   transition: all ease-in-out 300ms;
+  width: 100%;
 }
 
 .input:hover {
@@ -44,4 +46,10 @@
 
 .btn:hover {
   scale: 1.05;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+  margin-bottom: 10px;
 }

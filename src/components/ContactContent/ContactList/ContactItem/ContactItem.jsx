@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux';
 
-import { deleteContactThunk } from '../../../redux/thunk';
+import { deleteContactThunk } from '../../../../redux/thunk';
 import css from './ContactItem.module.css';
 
-export const ContactItem = ({ id, name, number }) => {
+export const ContactItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => dispatch(deleteContactThunk(id));
 
   return (
     <li className={css.item}>
-      {name}: {number}
+      {name}: {phone}
       <button type="button" className={css.btn} onClick={handleDelete}>
         Delete
       </button>
