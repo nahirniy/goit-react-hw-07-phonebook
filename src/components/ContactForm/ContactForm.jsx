@@ -1,17 +1,23 @@
-import { useDispatch } from 'react-redux';
-// import { addContact } from '../../redux/contactsSlice';
-import css from './ContactForm.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { addContactThunk } from '../../redux/thunk';
+import { selectItems } from '../../redux/selectors';
+import { isContactDublicate, createContact } from '../../services/helpers';
+import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
+  const contacts = useSelector(selectItems);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    const { name, number } = e.target.elements;
+    const newContact = createContact(e.target.elements);
+    const inContact = isContactDublicate(contacts, newContact);
 
-    dispatch(addContactThunk({ name: name.value, phone: number.value }));
+    if (inContact) return;
+
+    dispatch(addContactThunk(newContact));
 
     e.target.reset();
   };
