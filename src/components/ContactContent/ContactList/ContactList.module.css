@@ -1,7 +1,14 @@
+.not_found {
+  margin-top: 30px;
+  color: #f6f6f6;
+  font-weight: 500;
+}
+
 .contact_list {
-  text-transform: capitalize;
+  margin-top: 20px;
+  text-transform: uppercase;
   list-style: inside;
-  gap: 5px;
+  gap: 13px;
   display: flex;
   flex-direction: column;
 }

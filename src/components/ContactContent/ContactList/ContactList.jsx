@@ -8,9 +8,10 @@ export const ContactList = () => {
 
   return (
     <>
+      {!visibleContacts.length && <h2 className={css.not_found}>No contact found</h2>}
       <ul className={css.contact_list}>
-        {visibleContacts.map(({ id, name, number }) => {
-          return <ContactItem key={id} id={id} name={name} number={number} />;
+        {visibleContacts.map(({ id, name, phone }) => {
+          return <ContactItem key={id} id={id} name={name} phone={phone} />;
         })}
       </ul>
     </>

@@ -9,18 +9,15 @@ export const Filter = () => {
   const findContact = ({ target: { value } }) => dispatch(setFilter(value));
 
   return (
-    <>
-      <h2>Contacts</h2>
-      <label className={css.label} htmlFor="filter">
-        Find contacts by name
-        <input
-          type="text"
-          id="filter"
-          name="filter"
-          className={css.input}
-          onInput={findContact}
-        />
-      </label>
-    </>
+    <label className={css.label} htmlFor="filter">
+      <span className={css.label_text}>Find contacts by name:</span>
+      <input
+        type="text"
+        id="filter"
+        name="filter"
+        className={css.input}
+        onInput={findContact}
+      />
+    </label>
   );
 };

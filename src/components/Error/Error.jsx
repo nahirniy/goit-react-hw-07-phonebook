@@ -5,5 +5,10 @@ import { selectError } from '../../redux/selectors';
 export const Error = () => {
   const error = useSelector(selectError);
 
-  return <h2 className={css.error}>{error}</h2>;
+  return (
+    <div>
+      <p className={css.error}>{error} </p>
+      <p className={css.error}> Failed to load contacts</p>
+    </div>
+  );
 };
